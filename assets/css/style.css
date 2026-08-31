@@ -216,17 +216,25 @@ p {
   font-size: clamp(2.1rem, 5vw, 3.25rem);
 }
 
-.contact-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.45rem 1.35rem;
+.contact-block {
   margin: 1.4rem 0 0;
   color: #3c3f44;
   font-size: 0.93rem;
 }
 
-.contact-line a,
+.contact-email,
+.profile-links {
+  margin-bottom: 0.3rem;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.7rem;
+}
+
+.profile-links a,
 .paper-links a {
   font-size: 0.93rem;
   font-weight: 650;
@@ -291,10 +299,31 @@ p {
 }
 
 .publication-list {
-  counter-reset: publications;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.publication-groups {
+  counter-reset: publications;
+}
+
+.publication-group-title {
+  margin: 2.2rem 0 0.65rem;
+  color: var(--accent-dark);
+  font-size: 1.25rem;
+}
+
+.publication-note {
+  margin: -0.6rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.corresponding-mark {
+  color: inherit;
+  font-size: 0.8em;
+  vertical-align: super;
 }
 
 .publication {
@@ -420,14 +449,71 @@ p {
   margin: 0;
 }
 
-.past-courses {
-  columns: 2 300px;
-  gap: 2.5rem;
-  padding-left: 1.25rem;
+.page-heading + .first-section h2 {
+  margin-top: 0;
 }
 
-.past-courses li {
-  break-inside: avoid;
+.course-list {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+}
+
+.course-row {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.course-term {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.course-row a {
+  font-weight: 650;
+}
+
+.back-link {
+  margin-bottom: 1.6rem;
+}
+
+.course-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+  margin: 1.5rem 0 0;
+}
+
+.course-summary div {
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.course-summary dt {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.course-summary dd {
+  margin: 0.15rem 0 0;
+}
+
+.syllabus-section {
+  max-width: 900px;
+}
+
+.topic-list,
+.grade-list {
+  padding-left: 1.35rem;
+}
+
+.topic-list li,
+.grade-list li {
   margin-bottom: 0.45rem;
 }
 
@@ -532,7 +618,9 @@ p {
 
   .news-item,
   .detail-list div,
-  .student-card {
+  .student-card,
+  .course-row,
+  .course-summary {
     grid-template-columns: 1fr;
     gap: 0.25rem;
   }
