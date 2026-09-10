@@ -194,10 +194,11 @@ p {
 .profile-photo {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: auto;
+  aspect-ratio: 2 / 3;
   border-radius: 3px;
   object-fit: cover;
-  object-position: 38% center;
+  object-position: center;
   box-shadow: 0 9px 26px rgba(38, 31, 30, 0.12);
 }
 
@@ -477,44 +478,203 @@ p {
   font-weight: 650;
 }
 
+.course-language-note {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .back-link {
   margin-bottom: 1.6rem;
 }
 
-.course-summary {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 2rem;
-  margin: 1.5rem 0 0;
+.course-semester {
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
-.course-summary div {
+.course-overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 1.5rem;
+  margin: -0.5rem 0 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.course-overview div {
   padding: 0.8rem 0;
   border-top: 1px solid var(--line);
 }
 
-.course-summary dt {
+.course-overview dt {
   color: var(--muted);
   font-size: 0.88rem;
   font-weight: 650;
 }
 
-.course-summary dd {
+.course-overview dd {
   margin: 0.15rem 0 0;
 }
 
-.syllabus-section {
-  max-width: 900px;
+.course-toc {
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--accent);
+  background: var(--wash);
 }
 
-.topic-list,
-.grade-list {
-  padding-left: 1.35rem;
+.course-toc p {
+  margin: 0 0 0.35rem;
+  font-weight: 650;
 }
 
-.topic-list li,
-.grade-list li {
-  margin-bottom: 0.45rem;
+.course-toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-section {
+  max-width: 920px;
+  scroll-margin-top: 1.5rem;
+}
+
+.course-section h2 {
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.course-alert {
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--notice);
+}
+
+.course-detail-list,
+.exam-details {
+  margin: 0;
+}
+
+.course-detail-list div,
+.exam-details div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.course-detail-list dt,
+.exam-details dt {
+  font-weight: 650;
+}
+
+.course-detail-list dd,
+.exam-details dd {
+  margin: 0;
+}
+
+.course-table-wrap {
+  max-width: 760px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.course-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.course-table th,
+.course-table td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.course-table th {
+  background: var(--wash);
+  font-weight: 650;
+}
+
+.course-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.email-link {
+  overflow-wrap: anywhere;
+}
+
+.grading-formula {
+  color: var(--accent-dark);
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  font-weight: 600;
+}
+
+.assessment-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 720px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.assessment-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+}
+
+.assessment-summary div + div {
+  border-left: 1px solid var(--line);
+}
+
+.assessment-summary strong {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.exam-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.exam-panel {
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: 4px;
+}
+
+.exam-panel h3 {
+  margin-top: 0;
+}
+
+.exam-panel .course-alert {
+  margin: 0.8rem 0 0;
+  font-size: 0.92rem;
+}
+
+.homework-table {
+  min-width: 540px;
+}
+
+.homework-policy {
+  max-width: 760px;
+  margin-top: 1rem;
 }
 
 .site-footer {
@@ -620,9 +780,21 @@ p {
   .detail-list div,
   .student-card,
   .course-row,
-  .course-summary {
+  .course-overview,
+  .course-detail-list div,
+  .exam-grid,
+  .exam-details div {
     grid-template-columns: 1fr;
     gap: 0.25rem;
+  }
+
+  .assessment-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .assessment-summary div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
   .publication {
